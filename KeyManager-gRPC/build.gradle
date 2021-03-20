@@ -42,6 +42,10 @@ dependencies {
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
     runtimeOnly("org.postgresql:postgresql")
     testImplementation("io.micronaut:micronaut-http-client")
+
+
+    implementation("io.micronaut:micronaut-http-client") // anotacao @Client
+    implementation("org.hibernate:hibernate-validator:6.1.6.Final") //anotacao do hibernate
 }
 
 
