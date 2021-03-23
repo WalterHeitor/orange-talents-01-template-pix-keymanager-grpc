@@ -12,10 +12,10 @@ class Conta (
     @field:NotBlank
     @Column
     var numero : String?,
-    @field:ManyToOne
+    @field:ManyToOne(cascade = [CascadeType.ALL])
     var instituicao: Instituicao?,
-    @field:ManyToOne
-    var titular: Titular,
+    @field:ManyToOne(cascade = [CascadeType.ALL])
+    var titular: Titular?,
     @field:Enumerated(EnumType.STRING)
     var tipo: TipoConta?
         ){

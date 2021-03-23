@@ -4,15 +4,13 @@ package br.com.zup.edu.pix.cadastra
 import br.com.edu.TipoDeChave
 import br.com.edu.TipoDeConta
 import br.com.zup.edu.pix.conta.Conta
+import java.time.LocalDateTime
 import java.util.*
-import javax.persistence.Column
-import javax.persistence.Embedded
-import javax.persistence.EnumType
-import javax.persistence.Enumerated
+import javax.persistence.*
 import javax.validation.Valid
 import javax.validation.constraints.NotBlank
 import javax.validation.constraints.NotNull
-
+@Entity
 class ChavePix(
     @field:NotNull
     @Column(nullable = false)
@@ -28,7 +26,15 @@ class ChavePix(
     @Column(nullable = false)
     val tipoDeConta: TipoDeConta,
     @field:Valid
-    @Embedded
+    @field:ManyToOne(cascade = [CascadeType.ALL])
     val conta: Conta
 ) {
+    @Id
+    @GeneratedValue
+    var id: Long? = null
+
+    var criadoEm: LocalDateTime? = null
+
+
+
 }

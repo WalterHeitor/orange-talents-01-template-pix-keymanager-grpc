@@ -4,7 +4,6 @@ import javax.persistence.*
 import javax.validation.constraints.NotBlank
 
 @Entity
-@Table(name = "instituicao")
 class Instituicao(
     @field:NotBlank
     val nome: String,
