@@ -33,7 +33,7 @@ class ChavePix(
     @GeneratedValue
     var id: Long? = null
 
-    var criadoEm: LocalDateTime? = null
+    var criadoEm: LocalDateTime? = LocalDateTime.now()
 
 
 
