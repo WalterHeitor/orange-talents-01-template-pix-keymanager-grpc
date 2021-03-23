@@ -25,7 +25,9 @@ class CadastraChaveEndpoint(@Inject val service: NovaChavePixService):
         val chaveCriada = service.cadastra(novaChave)
 
         val response = RegistraChavePixResponse.newBuilder()
-            .setClienteId(chaveCriada.id.toString()).build()
+            .setPixId(chaveCriada.id.toString())
+            .setClienteId(chaveCriada.clienteId.toString())
+            .build()
 
         responseObserver!!.onNext(response)
         responseObserver.onCompleted()

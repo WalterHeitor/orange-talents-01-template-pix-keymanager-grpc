@@ -5,7 +5,7 @@ import br.com.zup.edu.pix.exceptions.ChavePixExistenteException
 import io.grpc.Status
 import javax.inject.Singleton
 
-//@Singleton
+@Singleton
 class ChavePixExistenteExceptionHandler: ExceptionHandler<ChavePixExistenteException> {
 
     override fun handle(e: ChavePixExistenteException): ExceptionHandler.StatusWithDetails{
