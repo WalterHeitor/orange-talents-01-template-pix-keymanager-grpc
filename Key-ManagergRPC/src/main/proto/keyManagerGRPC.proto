@@ -10,7 +10,9 @@ package br.com.edu;
 service KeyManagerRegistraGRPCService {
   rpc registra (RegistraChavePixRequest) returns (RegistraChavePixResponse) {}
 }
-
+service KeyManagerRemoveGRPCService {
+  rpc registra (RemoveChavePixRequest) returns (ReemoveChavePixResponse) {}
+}
 
 enum TipoDeChave{
   UNKNOWN_TIPO_CHAVE = 0;
@@ -34,6 +36,17 @@ message RegistraChavePixRequest{
   TipoDeConta tipoDeConta   = 4;
 }
 message RegistraChavePixResponse{
+  string clienteId = 1;
+  string pixId     = 2;
+}
+/**
+    Remove chave
+ */
+message RemoveChavePixRequest{
+  string clienteId = 1;
+  string pixId     = 2;
+}
+message ReemoveChavePixResponse{
   string clienteId = 1;
   string pixId     = 2;
 }
