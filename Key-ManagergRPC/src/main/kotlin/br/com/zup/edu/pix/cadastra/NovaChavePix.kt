@@ -4,6 +4,9 @@ package br.com.zup.edu.pix.cadastra
 
 import br.com.edu.TipoDeChave
 import br.com.edu.TipoDeConta
+import br.com.zup.edu.pix.client.BankAccount
+import br.com.zup.edu.pix.client.CreatePixKeyRequest
+import br.com.zup.edu.pix.client.KeyType
 import br.com.zup.edu.pix.conta.Conta
 import br.com.zup.edu.pix.validacao.TipoDaChave
 
@@ -34,4 +37,12 @@ data class NovaChavePix(
             conta = conta
         )
     }
+//    fun paraCreatePixKeyRequest(conta: Conta): CreatePixKeyRequest {
+//        return CreatePixKeyRequest(
+//            keyType = KeyType.getKeyType(tipo!!),
+//            key = chave!!,
+//            bankAccount = BankAccount()
+//
+//        )
+//    }
 }
