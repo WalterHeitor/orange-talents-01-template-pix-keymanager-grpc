@@ -12,7 +12,7 @@ class Instituicao(
 
 ) {
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY)    /* nao foi acceito na insttuicao (strategy = GenerationType.IDENTITY)*/
     var id: Long? = null
 
 }

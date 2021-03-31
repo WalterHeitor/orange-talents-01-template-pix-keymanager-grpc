@@ -14,14 +14,19 @@ class Conta (
     var numero : String?,
     @field:ManyToOne(cascade = [CascadeType.ALL])
     var instituicao: Instituicao?,
-    @field:ManyToOne(cascade = [CascadeType.ALL])
+//    @field:ManyToOne(cascade = [CascadeType.ALL])
+    @field:Embedded
     var titular: Titular?,
     @field:Enumerated(EnumType.STRING)
     var tipo: TipoConta?
         ){
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
+
+    companion object{
+        const val ISBP = "60701190"
+    }
 
 }

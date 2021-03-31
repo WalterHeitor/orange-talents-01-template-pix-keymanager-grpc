@@ -17,7 +17,7 @@ data class ContaResponse(
             agencia,
             numero,
             Instituicao(instituicao.nome, instituicao.ispb),
-            Titular(titular.id, titular.nome, titular.cpf),
+            Titular(titular.nome, titular.cpf), //titular.id,
             tipo
         )
     }

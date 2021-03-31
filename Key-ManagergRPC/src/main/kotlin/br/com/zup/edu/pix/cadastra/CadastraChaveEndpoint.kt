@@ -8,6 +8,7 @@ import io.grpc.stub.StreamObserver
 import org.slf4j.LoggerFactory
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.math.log
 
 @Singleton
 class CadastraChaveEndpoint(@Inject val service: NovaChavePixService):
@@ -22,8 +23,9 @@ class CadastraChaveEndpoint(@Inject val service: NovaChavePixService):
         logger.info("----Dados da request ${request?.clienteId}----")
         println("---dados request ${request}---")
         val novaChave: NovaChavePix? = request?.paraChavePix()
-        val chaveCriada = service.cadastra(novaChave)
+        val chaveCriada: ChavePix = service.cadastra(novaChave)
 
+        logger.info("Chave criada com sucesso ${chaveCriada} ")
         val response = RegistraChavePixResponse.newBuilder()
             .setPixId(chaveCriada.id.toString())
             .setClienteId(chaveCriada.clienteId.toString())

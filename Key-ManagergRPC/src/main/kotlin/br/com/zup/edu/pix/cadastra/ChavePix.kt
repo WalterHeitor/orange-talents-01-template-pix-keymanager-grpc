@@ -29,8 +29,18 @@ class ChavePix(
     @field:ManyToOne(cascade = [CascadeType.ALL])
     val conta: Conta
 ) {
+    fun atualiza(key: String) {
+        println("tipo $tipo")
+        if (TipoDeChave.ALEATORIA == tipo){
+            println("chave ${chave}")
+            chave = key
+
+            println("chave = key ${chave}")
+        }
+    }
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null
 
     var criadoEm: LocalDateTime? = LocalDateTime.now()

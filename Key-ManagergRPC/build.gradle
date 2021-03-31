@@ -69,6 +69,7 @@ dependencies {
 
     implementation("io.micronaut:micronaut-http-client") // anotacao @Client
     implementation("org.hibernate:hibernate-validator:6.1.6.Final") //anotacao do hibernate
+    implementation("io.micronaut.xml:micronaut-jackson-xml") // anotacao para desserializacao xml
 }
 
 
