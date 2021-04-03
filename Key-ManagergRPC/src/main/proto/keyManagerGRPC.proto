@@ -18,6 +18,9 @@ service KeyManagerRemoveGRPCService {
 service KeyManagerCarregaGRPCService {
   rpc carrega (CarregaChavePixRequest) returns (CarregaChavePixResponse) {}
 }
+service KeyManagerListaGRPCService {
+  rpc lista (ListaChavePixRequest) returns (ListaChavePixResponse) {}
+}
 
 enum TipoDeChave{
   UNKNOWN_TIPO_CHAVE = 0;
@@ -86,4 +89,21 @@ message CarregaChavePixResponse{
   string clienteId = 1;
   string pixId     = 2;
   ChavePix chave   = 3;
+}
+/**
+    Listar chave
+ */
+message ListaChavePixRequest{
+  string clienteId = 1;
+}
+message ListaChavePixResponse{
+  message ChavePix{
+    string pixId = 1;
+    TipoDeChave tipo = 2;
+    string chave = 3;
+    TipoDeConta tipoDeconta = 4;
+    google.protobuf.Timestamp criadaEm = 5;
+  }
+  string  clienteId = 1;
+  repeated ChavePix chaves = 2;
 }
