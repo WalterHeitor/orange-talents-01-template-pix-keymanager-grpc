@@ -3,6 +3,7 @@ package br.com.zup.edu.pix.client
 import br.com.zup.edu.pix.client.request.DeletePixKeyRequest
 import br.com.zup.edu.pix.client.response.CreatePixKeyResponse
 import br.com.zup.edu.pix.client.response.DeletePixKeyResponse
+import br.com.zup.edu.pix.client.response.PixKeyDetalhesResponse
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.*
@@ -24,5 +25,10 @@ interface ClientBCB {
 //    @Produces(MediaType.APPLICATION_XML)
     fun delete(@PathVariable key: String, @Body request: DeletePixKeyRequest)
             : HttpResponse<DeletePixKeyResponse>
+
+    @Get("/api/v1/pix/keys/{key}")
+    @Consumes(MediaType.APPLICATION_XML)
+    @Produces(MediaType.APPLICATION_XML)
+    fun consultar(@PathVariable key: String) : HttpResponse<PixKeyDetalhesResponse>
 }
 

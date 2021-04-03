@@ -21,6 +21,7 @@ class Conta (
     var tipo: TipoConta?
         ){
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null

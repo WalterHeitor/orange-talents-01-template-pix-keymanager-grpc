@@ -5,6 +5,8 @@ option java_package = "br.com.edu";
 option java_outer_classname = "KeyManagerGRPC";
 option objc_class_prefix = "HLW";
 
+import "google/protobuf/timestamp.proto";
+
 package br.com.edu;
 
 service KeyManagerRegistraGRPCService {
@@ -12,6 +14,9 @@ service KeyManagerRegistraGRPCService {
 }
 service KeyManagerRemoveGRPCService {
   rpc remove (RemoveChavePixRequest) returns (RemoveChavePixResponse) {}
+}
+service KeyManagerCarregaGRPCService {
+  rpc carrega (CarregaChavePixRequest) returns (CarregaChavePixResponse) {}
 }
 
 enum TipoDeChave{
@@ -49,4 +54,36 @@ message RemoveChavePixRequest{
 message RemoveChavePixResponse{
   string clienteId = 1;
   string pixId     = 2;
+}
+/**
+    Carrega chave
+ */
+message CarregaChavePixRequest{
+  message FiltroPorPixId{
+    string clienteId = 1;
+    string pixId     = 2;
+  }
+  oneof filtro{
+    FiltroPorPixId pixId = 1;
+    string chave         = 2;
+  }
+}
+message CarregaChavePixResponse{
+  message ChavePix{
+    message ContaInfo{
+      TipoDeConta tipo     = 1;
+      string instituicao   = 2;
+      string nomeDoTitular = 3;
+      string cpfDoTitular  = 4;
+      string agencia       = 5;
+      string numeroDaConta = 6;
+    }
+    TipoDeChave tipo = 1;
+    string chave     = 2;
+    ContaInfo conta  = 3;
+    google.protobuf.Timestamp criadaEm = 4;
+  }
+  string clienteId = 1;
+  string pixId     = 2;
+  ChavePix chave   = 3;
 }

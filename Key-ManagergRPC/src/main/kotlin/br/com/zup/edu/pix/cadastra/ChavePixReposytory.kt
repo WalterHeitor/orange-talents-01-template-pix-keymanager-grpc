@@ -1,5 +1,6 @@
 package br.com.zup.edu.pix.cadastra
 
+import br.com.zup.edu.pix.consulta.ChavePixResponse
 import io.micronaut.data.annotation.Repository
 import io.micronaut.data.jpa.repository.JpaRepository
 import java.util.*
@@ -13,5 +14,7 @@ interface ChavePixReposytory: JpaRepository<ChavePix, Long>  {
      * o que vem de um request por exemplo;
      */
     abstract fun findByIdAndClienteId(id: Long?, clienteId: UUID?): Optional<ChavePix>
+
+    abstract fun findByChave(chave: String): Optional<ChavePix>
 
 }

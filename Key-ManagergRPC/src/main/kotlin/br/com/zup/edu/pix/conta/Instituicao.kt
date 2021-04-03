@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank
 @Entity
 class Instituicao(
     @field:NotBlank
-    val nome: String,
+    val nome: String?,
     @field:NotBlank
     val ispb: String,
 

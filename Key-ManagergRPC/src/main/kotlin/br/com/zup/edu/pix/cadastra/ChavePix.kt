@@ -16,6 +16,7 @@ class ChavePix(
     @Column(nullable = false)
     val clienteId: UUID,
     @field:NotNull
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     val tipo: TipoDeChave,
     @field:NotBlank
